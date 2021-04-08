@@ -18,12 +18,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.post("/login", (req, res) => {
+  const data = req.body
+  res.send.redirect("/");
+});
+
 app.get("/register", (req, res) => {
   res.render("register");
 });
 
 app.post("/register", (req, res) => {
-  res.redirect("/");
+  res.send.redirect("/");
 });
 
 app.get("/user", (req, res) => {
