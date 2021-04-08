@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const User = require("./models/userSchema")
+const User = require("./models/userSchema");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +13,6 @@ mongoose.connect(
   "mongodb+srv://testuser:testuserpass@cluster0.w9j5l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
-
 
 app.get("/", (req, res) => {
   res.render("index");
