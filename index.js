@@ -39,7 +39,7 @@ app.get("/user", (req, res) => {
   res.render("user");
 });
 
-port = 3000;
+const port = 3000;
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });

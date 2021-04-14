@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <title>Log In</title>
+</head>
+<body>
+    <div class="panel">
+        <h1 class="title">ParkingLots</h1>
+        <form action="/login" method="POST">
+            <div class="input-box">
+                <input type="email" placeholder="E-mail" class="input" name="email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" class="input" name="password" required>
+            <div>
+            <button class="login-button" >LOGIN</button>
+            </div>
+                <a href="" class="forgetpw-button">Forget password?</a>
+            </div>
+        </form>
+        <hr width="300px" color="#ced4da" size="1px">
+        <span>Haven't got an account?
+            <a href="/register" class="regis-button">Sign up</a>
+        </span>
+        
+    </div>
+</body>
+</html>

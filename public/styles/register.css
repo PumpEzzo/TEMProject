@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  background: linear-gradient(-45deg, #fae1dd, #ee7752, #23a6d5, #23d5ab);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+}
+.container {
+  width: 100%;
+  height: 600px;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  box-shadow: 2px 2px 5px #858480;
+}
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.poster {
+  width: 50%;
+  height: 100%;
+}
+.input-panel {
+  width: 50%;
+  height: 100%;
+}
+
+form div {
+  margin: 20px 0;
+  text-align: center;
+}
+div.poster,
+div.input-panel {
+  margin-top: 0;
+}
+.title {
+  font-family: "Yeseva One";
+  text-align: left;
+  margin: 50px 0;
+  margin-bottom: 0px;
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 50px;
+  color: #118ab2;
+}
+label {
+  display: block;
+  text-align: left;
+  margin-left: 50px;
+}
+input {
+  border-radius: 2px;
+  border: 1px solid rgb(187, 183, 183);
+  width: 75%;
+  line-height: 2;
+  font-size: 15px;
+  transition: border-color 200ms;
+}
+label#checkbox {
+  display: inline;
+  font-size: 12px;
+  margin-left: 0;
+}
+label#birthday {
+  margin-top: 47px;
+}
+input#checkbox {
+  width: 10px;
+}
+input#signup {
+  font-size: 15px;
+  color: white;
+  background: linear-gradient(90deg, #66c3d3, #118ab2);
+  border-radius: 4px;
+  border: none;
+  transition: background-color 200ms ease-in-out;
+}
+a.terms {
+  text-decoration: none;
+  color: rgb(42, 102, 212);
+}
+div#birthday {
+  margin-top: 117px;
+}
+input:hover {
+  border-color: rgb(77, 75, 75);
+}
+input#signup:hover {
+  background: linear-gradient(90deg, #70cddd, #25aad6);
+  cursor: pointer;
+}
+a.terms:hover {
+  text-decoration: underline;
+}
+@media (max-width: 500px) {
+  .container {
+    width: 350px;
+    height: 1000px;
+    flex-direction: column;
+  }
+  form {
+    flex-direction: column;
+  }
+  .poster,
+  .input-panel {
+    width: 100%;
+  }
+}
