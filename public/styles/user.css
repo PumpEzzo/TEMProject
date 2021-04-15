@@ -1,0 +1,142 @@
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #fae1dd, #ee7752, #23a6d5, #23d5ab);
+}
+.navbar-light {
+  background: whitesmoke;
+  height: 80px;
+}
+.navbar-brand {
+  font-family: "Yeseva One";
+  font-size: 30px;
+  color: #118ab2 !important;
+}
+.nav-link {
+  font-family: Roboto;
+  font-weight: bold;
+}
+.container {
+  font-family: Roboto;
+  margin-top: 30px;
+  height: 1000px;
+  width: 90%;
+  max-width: 1000px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+div.img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  color: #118ab2;
+  border-bottom: 2px solid #ee7752;
+  font-family: "Yeseva One";
+  margin-top: 20px;
+  text-align: center;
+}
+.profile-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.editprofile-btn {
+  margin: 10px 0;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid #118ab2;
+  color: #118ab2;
+  transition: all 200ms ease-in-out;
+}
+.editprofile-btn:hover {
+  background-color: #e8f7fc;
+  box-shadow: 0 0.5em -0.5em 0.4em;
+  transform: translateY(-0.075em);
+}
+input {
+  line-height: 2;
+  border-radius: 2px;
+  border: 1px solid #7a9eaa;
+}
+input:hover {
+  border: 1px solid #045570;
+}
+.input {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+label {
+  color: #299bc2;
+  text-align: left;
+  margin-right: auto;
+
+  font-weight: bold;
+}
+.material-icons {
+  position: relative;
+  top: 10px;
+  color: #299bc2;
+  font-size: 30px;
+  margin-right: 5px;
+}
+a#account-btn {
+  transition: border 200ms ease-in-out;
+}
+a#account-btn:hover {
+  border-bottom: 2px solid #299bc2;
+}
+
+@media (min-width: 1000px) {
+  .container {
+    flex-direction: row;
+    height: 80%px;
+    max-height: 600px;
+  }
+  .info {
+    width: 50%;
+  }
+  .img {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  h1 {
+    margin-bottom: 60px;
+    font-size: 50px;
+  }
+  .input {
+    flex-direction: column;
+    width: 100%;
+  }
+  .input:first-child {
+    margin-top: 100px;
+  }
+  .profile-photo {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin-top: 40px;
+    position: relative;
+    top: -70px;
+  }
+  .editprofile-btn {
+    position: relative;
+    top: -60px;
+  }
+}
