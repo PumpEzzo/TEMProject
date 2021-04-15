@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const User = require("./models/userSchema");
 const { request } = require("http");
+const { findById } = require("./models/userSchema");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -54,11 +55,12 @@ app.post("/register", async(req, res) => {
   res.redirect('/info');
 });
 
-app.get("/user", (req, res) => {
+app.get("/user", async (req, res) => {
   if(!req.session.user_id){
     res.redirect('/login')
   }
-  res.render("user");
+  const userFound = await findById(req.session.user_id);
+  res.render("user", {userFound});
 });
 
 const port = 3000;
