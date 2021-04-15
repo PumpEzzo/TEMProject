@@ -59,8 +59,9 @@ app.get("/user", async (req, res) => {
   if(!req.session.user_id){
     res.redirect('/login')
   }
-  const userFound = await findById(req.session.user_id);
-  res.render("user", {userFound});
+    const userFound = await User.findById(session.user_id);
+    console.log(userFound);
+    res.render("user", {userFound});
 });
 
 const port = 3000;
