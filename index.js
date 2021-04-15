@@ -12,6 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(session({ secret: "Not good", resave:true, saveUninitialized:true }));
 app.use(flash());
+app.use((req, res, next)=>{
+  if(req.session.user){
+    res.locals.user = req.session.user;
+  }
+  next();
+})
 
 function isLoggedIn(req, res, next) {
   if (!req.session.user_id) {
@@ -46,6 +52,7 @@ app.post("/login", async (req, res) => {
   const foundUser = await User.validate(email, password);
   if (foundUser) {
     req.session.user_id = foundUser._id;
+    req.session.user = foundUser;
     res.redirect("/user");
   } else {
     req.flash("error", "username or password is incorrect");
@@ -68,6 +75,7 @@ app.post("/register", async (req, res) => {
   if (!valid) {
     await user.save();
     req.session.user_id = user._id;
+    req.session.user = foundUser;
     res.redirect("/user");
   } else {
     req.flash("error", "Email is already registered");
