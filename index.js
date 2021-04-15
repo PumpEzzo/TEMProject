@@ -5,13 +5,18 @@ const session = require("express-session");
 const User = require("./models/userSchema");
 const { request } = require("http");
 const { findById } = require("./models/userSchema");
+const { urlencoded } = require("express");
 const app = express();
+const flash = require("connect-flash");
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(session({ secret: "Not good" }));
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.use(flash());
+
+
 
 mongoose.connect(
   "mongodb+srv://testuser:testuserpass@cluster0.w9j5l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -23,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login",{message:req.flash("error")});
 });
 
 app.post("/login", async (req, res) => {
@@ -34,6 +39,7 @@ app.post("/login", async (req, res) => {
     req.session.user_id = foundUser._id;
     res.redirect("/user");
   } else {
+    req.flash("error","username or password is incorrect");
     res.redirect("/login");
   }
 });
@@ -44,14 +50,23 @@ app.post("/logout", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register",{message:flash("error")});
 });
 
 app.post("/register", async (req, res) => {
   const user = new User(req.body);
-  await user.save();
-  req.session.user_id = user._id;
-  res.redirect("/info");
+  const valid = await User.findOne({email:user.email});
+  if(!valid){
+    await user.save();
+    req.session.user_id = user._id;
+    res.redirect("/user");
+  }
+  else{
+    req.flash("error","Email is already registered")
+    res.redirect("/register");
+  }
+  
+  
 });
 
 app.get("/user", async (req, res) => {
@@ -59,9 +74,6 @@ app.get("/user", async (req, res) => {
     res.redirect("/login");
   }
   const userFound = await User.findById(req.session.user_id);
-  console.log(req.session.user_id);
-
-  console.log(userFound);
   res.render("user", { userFound });
 });
 
