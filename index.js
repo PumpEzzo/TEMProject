@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session({secret: "Not good"}));
+app.use(session({ secret: "Not good" }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -26,42 +26,43 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.post("/login", async(req, res) => {
-  const user = new User(req.body);
-  const foundUser = await User.validate(user.email, user.password);
-  if(foundUser) {
-    req.session.user_id = user._id;
-    res.redirect('/user');
-
-  }
-  else{
+app.post("/login", async (req, res) => {
+  const {email, password} = req.body;
+  //const user = new User(req.body);
+  const foundUser = await User.validate(email, password);
+  if (foundUser) {
+    req.session.user_id = foundUser._id;
+    res.redirect("/user");
+  } else {
     res.redirect("/login");
   }
 });
 
-app.post("/logout", (req, res)=>{
-    req.session.destroy();
-    res.redirect('/login');
-})
+app.post("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/login");
+});
 
 app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.post("/register", async(req, res) => {
+app.post("/register", async (req, res) => {
   const user = new User(req.body);
   await user.save();
   req.session.user_id = user._id;
-  res.redirect('/info');
+  res.redirect("/info");
 });
 
 app.get("/user", async (req, res) => {
-  if(!req.session.user_id){
-    res.redirect('/login')
+  if (!req.session.user_id) {
+    res.redirect("/login");
   }
-    const userFound = await User.findById(session.user_id);
-    console.log(userFound);
-    res.render("user", {userFound});
+  const userFound = await User.findById(req.session.user_id);
+  console.log(req.session.user_id);
+
+  console.log(userFound);
+  res.render("user", { userFound });
 });
 
 const port = 3000;

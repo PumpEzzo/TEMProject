@@ -5,6 +5,8 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(-45deg, #fae1dd, #ee7752, #23a6d5, #23d5ab);
+  background-repeat: no-repeat;
+
 }
 .navbar-light {
   background: whitesmoke;
