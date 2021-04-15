@@ -1,11 +1,14 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const session = require("express-session");
 const User = require("./models/userSchema");
+const { request } = require("http");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(session({secret: "Not good"}));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -22,20 +25,39 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.post("/login", (req, res) => {
-  const data = req.body
-  res.send.redirect("/");
+app.post("/login", async(req, res) => {
+  const user = new User(req.body);
+  const foundUser = await User.validate(user.email, user.password);
+  if(foundUser) {
+    req.session.user_id = user._id;
+    res.redirect('/user');
+
+  }
+  else{
+    res.redirect("/login");
+  }
 });
+
+app.post("/logout", (req, res)=>{
+    req.session.destroy();
+    res.redirect('/login');
+})
 
 app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.post("/register", (req, res) => {
-  res.send.redirect("/");
+app.post("/register", async(req, res) => {
+  const user = new User(req.body);
+  await user.save();
+  req.session.user_id = user._id;
+  res.redirect('/info');
 });
 
 app.get("/user", (req, res) => {
+  if(!req.session.user_id){
+    res.redirect('/login')
+  }
   res.render("user");
 });
 

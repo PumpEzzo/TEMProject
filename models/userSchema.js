@@ -1,11 +1,28 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const schema = mongoose.Schema({
-  fullname: String,
-  age: Number,
+const userSchema = mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  idNo: String,
+  carNo: String,
+  agreed: String,
+  birthday: String,
   email: String,
-  idNumber: String,
-  carInfo: [String],
+  password: String,
+  confirmPassword: String
 });
 
-module.exports = mongoose.model("User", schema);
+userSchema.statics.validate = async function(email, password){
+  const foundUser = await this.findOne({ email });
+  const isValid = await bcrypt.compare(password, foundUser.password);
+  return isValid ? foundUser : false;
+}
+
+userSchema.pre ('save', async function (next){
+  if(!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 12);
+  next();
+})
+
+module.exports = mongoose.model("User", userSchema);
