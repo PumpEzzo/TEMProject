@@ -10,8 +10,8 @@ const userSchema = mongoose.Schema({
   birthday: String,
   email: String,
   password: String,
-  confirmPassword: String
-});
+  parkedHis: {type: [mongoose.Schema.Types.ObjectId], ref:"Parking"},
+  });
 
 userSchema.statics.validate = async function(email, password){
   const foundUser = await this.findOne({ email });
