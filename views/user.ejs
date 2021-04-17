@@ -55,12 +55,10 @@
               aria-current="page"
               href="#"
             >
-              <i class="material-icons">account_circle</i>Tony</a
-            >
+              <i class="material-icons">account_circle</i><%= user.firstName %>
+            </a>
             <form action="/logout" method="POST">
-              <button>
-                logout
-              </button>
+              <button>logout</button>
             </form>
           </div>
         </div>
@@ -83,8 +81,8 @@
             type="text"
             placeholder=""
             id="fname"
-            name="lastName"
-            value="Tony"
+            name="firstName"
+            value="<%=user.firstName%>"
           />
         </div>
         <div class="input">
@@ -94,7 +92,7 @@
             placeholder=""
             id="lname"
             name="lastName"
-            value="Stark"
+            value="<%= user.lastName %> "
           />
         </div>
         <div class="input">
@@ -114,7 +112,7 @@
             placeholder=""
             id="car-no"
             name="carNo"
-            value="กท 5555"
+            value="<%=user.carNo>"
           />
         </div>
         <div class="input" id="birthday">
