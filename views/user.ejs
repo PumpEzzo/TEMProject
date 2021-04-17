@@ -58,7 +58,7 @@
               <i class="material-icons">account_circle</i><%= user.firstName %>
             </a>
             <form action="/logout" method="POST">
-              <button>logout</button>
+              <button class="logout-btn">logout</button>
             </form>
           </div>
         </div>
@@ -102,7 +102,7 @@
             placeholder=""
             id="id-no"
             name="idNo"
-            value="1100123456789"
+            value="<%=user.idNo%>"
           />
         </div>
         <div class="input">
@@ -112,12 +112,17 @@
             placeholder=""
             id="car-no"
             name="carNo"
-            value="<%=user.carNo>"
+            value="<%=user.carNo%>"
           />
         </div>
         <div class="input" id="birthday">
           <label for="birthday" id="birthday">Date of Birth</label>
-          <input type="date" id="birthday" name="birthday" value="29/09/1999" />
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            value="<%=user.birthday %>"
+          />
         </div>
         <div class="input">
           <label for="email" id="email">Email Address</label>
@@ -126,7 +131,7 @@
             placeholder=""
             id="email"
             name="email"
-            value="market-wizard@gmail.com"
+            value="<%=user.email%>"
           />
         </div>
       </div>

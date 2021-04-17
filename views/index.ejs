@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
     <link rel="stylesheet" href="/styles/index.css" />
-    <title>Document</title>
+    <title>Home</title>
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -54,8 +54,8 @@
               aria-current="page"
               href="#"
             >
-              <i class="material-icons">account_circle</i>Tony</a
-            >
+              <i class="material-icons">account_circle</i><%= user.firstName %>
+            </a>
             <form action="/logout" method="POST">
               <button>logout</button>
             </form>
