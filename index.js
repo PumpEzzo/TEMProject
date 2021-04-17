@@ -38,7 +38,7 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-app.get("/", (req, res) => {
+app.get("/", isLoggedIn, (req, res) => {
   res.render("index");
 });
 
