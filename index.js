@@ -39,7 +39,7 @@ mongoose.connect(
 );
 
 app.get("/", isLoggedIn, (req, res) => {
-  res.render("index");
+  res.render("index", { userFound });
 });
 
 app.get("/login", isLoggedOut, (req, res) => {
