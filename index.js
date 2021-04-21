@@ -75,7 +75,7 @@ app.post("/register", async (req, res) => {
   if (!valid) {
     await user.save();
     req.session.user_id = user._id;
-    req.session.user = foundUser;
+    req.session.user = user;  //req.session.foundUser //FoundUser is broken  
     res.redirect("/user");
   } else {
     req.flash("error", "Email is already registered");
