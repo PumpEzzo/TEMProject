@@ -20,8 +20,8 @@
       crossorigin="anonymous"
     />
     <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/index.css" />
     <title>Home</title>
@@ -41,9 +41,9 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="navbar-collapse collapse" id="navbarNavDropdown">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
             <a class="nav-link" href="#">Connection</a>
             <a class="nav-link" href="#">Support</a>
           </div>
@@ -52,21 +52,18 @@
               class="nav-link active"
               id="account-btn"
               aria-current="page"
-              href="#"
+              href="/user"
             >
               <i class="material-icons">account_circle</i><%= user.firstName %>
             </a>
             <form action="/logout" method="POST">
-              <button>logout</button>
+              <button class="logout-btn">logout</button>
             </form>
           </div>
         </div>
       </div>
     </nav>
-    <div class="btn-group" role="group" aria-label="Basic outlined example">
-      <button type="button" class="btn btn-outline-primary">Scan QR</button>
-      <button type="button" class="btn btn-outline-primary">My QR</button>
-    </div>
+
     <div class="container">
       <div class="container-fluid">
         <div class="time-stamp">
@@ -82,25 +79,38 @@
         <div class="time-left">
           <h5>Time left before being charged :</h5>
           <h1 id="timer">1 hr 53 mins</h1>
-          <h3>Current fee : 0 THB</h3>
+          <h3 style="color: #118ab2">Current fee : 0 THB</h3>
         </div>
       </div>
       <div class="container-fluid">
         <div>
           <h5>Location :</h5>
+          <h3>
+            <i class="material-icons" id="location-icon"> location_on </i>Siam
+            Paragon
+          </h3>
+        </div>
+          <button type="button" class="btn btn-outline-primary">
+            <span class="material-icons" id="QR-icon"> qr_code_scanner </span>Scan QR
+          </button>
         </div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-      integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-      integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-      crossorigin="anonymous"
-    ></script>
+    <div class="container">
+      <div class="container-fluid">
+        <h2 style="border-bottom: 1px solid rgb(126, 118, 118)">Parking Fee</h2>
+        <div>
+          <h5><b>Free for the first 3 hours</b></h5>
+        </div>
+        <h5><b>After 3 hours :</b></h5>
+        <ul>
+          <li><h5>20 THB/hr for 4th and 5th hour</h5></li>
+          <li><h5>40 THB/hr for 6th hour onwards</h5></li>
+          <li><h5>Receipt of 400 THB get extra 2 hours free parking</h5></li>
+          <li><h5>Receipt of 1000 THB get eatra 5 hours free parking</h5></li>
+        </ul>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
