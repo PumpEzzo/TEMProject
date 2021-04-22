@@ -1,0 +1,81 @@
+html {
+  box-sizing: border-box;
+}
+.navbar-light {
+  background: whitesmoke;
+  background: linear-gradient(-45deg, #23a6d5, #23d5ab);
+  height: 80px;
+}
+.navbar-brand {
+  font-family: "Yeseva One";
+  font-size: 30px;
+  color: #118ab2 !important;
+  color: white !important;
+}
+.nav-link {
+  font-family: Roboto;
+  font-weight: bold;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: white;
+  flex-direction: column;
+  display: flex;
+}
+nav {
+  box-shadow: 0 -0.5rem 0.5rem 0.25rem;
+}
+.container {
+  font-family: Roboto;
+  margin-top: 30px;
+  height: auto;
+  width: 90%;
+  max-width: 1000px;
+  background-color: rgba(201, 194, 194, 0.281);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 0;
+}
+.btn {
+  border: none;
+  color: #118ab2;
+  border-radius: none;
+}
+.btn:hover {
+  background-color: #23a6d5;
+}
+.btn-group {
+  box-shadow: 0 0 5px 1px #118ab2;
+  position: sticky;
+}
+#timer {
+  text-align: center;
+}
+div.time-stamp {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+div#check-out {
+  border-left: 1px solid rgb(126, 118, 118);
+  padding-left: 5px;
+}
+div#check-in,
+div#check-out,
+h5 {
+  text-align: left;
+  display: inline;
+  width: 50%;
+  font-size: small;
+}
+h1 {
+  font-size: 50px;
+}
+.time-left {
+  text-align: center;
+}
