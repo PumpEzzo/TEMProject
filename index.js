@@ -5,7 +5,8 @@ const session = require("express-session");
 const User = require("./models/userSchema");
 const app = express();
 const flash = require("connect-flash");
-const { findById } = require("./models/userSchema");
+const Parking = require("./models/parkingSchema");
+
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
