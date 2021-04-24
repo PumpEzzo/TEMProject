@@ -5,6 +5,7 @@ const session = require("express-session");
 const User = require("./models/userSchema");
 const app = express();
 const flash = require("connect-flash");
+const { findById } = require("./models/userSchema");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -38,8 +39,10 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-app.get("/", isLoggedIn, (req, res) => {
-  res.render("index");
+app.get("/", isLoggedIn, async (req, res) => {
+  const foundUser = await User.findById(req.session.user_id).populate("parkedHis");
+  const lastParking = foundUser.parkedHis[-1];
+  res.render("index", { lastParking });
 });
 
 app.get("/login", isLoggedOut, (req, res) => {
