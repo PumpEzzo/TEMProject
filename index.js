@@ -5,6 +5,7 @@ const session = require("express-session");
 const User = require("./models/userSchema");
 const app = express();
 const flash = require("connect-flash");
+const { findById } = require("./models/userSchema");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -38,8 +39,10 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-app.get("/", isLoggedIn, (req, res) => {
-  res.render("index");
+app.get("/", isLoggedIn, async (req, res) => {
+  const foundUser = await User.findById(req.session.user_id).populate("parkedHis");
+  const lastParking = foundUser.parkedHis[-1];
+  res.render("index", { lastParking });
 });
 
 app.get("/login", isLoggedOut, (req, res) => {
@@ -53,7 +56,7 @@ app.post("/login", async (req, res) => {
   if (foundUser) {
     req.session.user_id = foundUser._id;
     req.session.user = foundUser;
-    res.redirect("/user");
+    res.redirect("/");
   } else {
     req.flash("error", "username or password is incorrect");
     res.redirect("/login");
@@ -76,7 +79,7 @@ app.post("/register", async (req, res) => {
     await user.save();
     req.session.user_id = user._id;
     req.session.user = user;  //req.session.foundUser //FoundUser is broken  
-    res.redirect("/user");
+    res.redirect("/");
   } else {
     req.flash("error", "Email is already registered");
     res.redirect("/register");
