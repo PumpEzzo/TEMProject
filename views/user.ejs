@@ -29,7 +29,7 @@
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+      <div class="atnav container-fluid">
         <a class="navbar-brand" href="#">ParkingLots</a>
         <button
           class="navbar-toggler"
@@ -44,7 +44,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" aria-current="page" href="/">Home</a>
             <a class="nav-link" href="#">Connection</a>
             <a class="nav-link" href="#">Support</a>
           </div>
@@ -55,10 +55,21 @@
               aria-current="page"
               href="/user"
             >
-              <i class="material-icons">account_circle</i><%= user.firstName %>
+              <i class="material-icons active">account_circle</i><%=
+              user.firstName %>
             </a>
-            <form action="/logout" method="POST">
-              <button class="logout-btn">logout</button>
+            <a href="" class="nav-link">
+              <img
+                id="bankIcon"
+                src="https://i.pinimg.com/originals/a0/3c/f5/a03cf5e37b4b1d0b376ad04a6b39e0b3.png"
+                alt=""
+                width="30"
+                height="30"
+              />
+              Kbank
+            </a>
+            <form class="nav-link" action="/logout" method="POST">
+              <button class="logout-btn nav-link">Logout</button>
             </form>
           </div>
         </div>

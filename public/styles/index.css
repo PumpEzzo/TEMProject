@@ -2,8 +2,8 @@ html {
   box-sizing: border-box;
 }
 .navbar-light {
-  background: linear-gradient(-45deg, #23d5ab, #23a6d5);
   height: 80px;
+  background: linear-gradient(-45deg, #23d5ab, #23a6d5);
 }
 .navbar-brand {
   font-family: "Yeseva One";
@@ -13,6 +13,10 @@ html {
 .nav-link {
   font-family: Roboto;
   font-weight: bold;
+}
+
+div.atnav {
+  background: linear-gradient(-45deg, #23d5ab, #23a6d5);
 }
 body {
   margin: 0;
@@ -25,62 +29,77 @@ body {
 nav {
   box-shadow: 0 -0.5rem 0.5rem 0.25rem;
 }
-
 .container {
   font-family: Roboto;
   margin-top: 30px;
   height: auto;
   width: 90%;
   max-width: 1000px;
-  background-color: rgba(201, 194, 194, 0.281);
+  background-color: rgba(238, 171, 132, 0.281);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   padding: 0;
   box-shadow: 0 3px 1px 0.05px #118ab2;
 }
+#parking-fee-box {
+  margin-bottom: 30px;
+}
 .logout-btn {
   border: none;
   background: none;
   font-family: "Roboto";
-  font-weight: bold;
-  position: relative;
-  top: 18px;
+
   transition: border 200ms ease-in-out;
-  padding-bottom: 9px;
+  width: 100%;
+  text-align: left;
 }
-.logout-btn:hover {
+form.nav-link:hover,
+a.nav-link:hover {
   border-bottom: 2px solid #299bc2;
 }
 .material-icons {
-  position: relative;
-  top: 10px;
-  color: #299bc2;
-  font-size: 30px;
+  color: white;
+  font-size: 34px;
   margin-right: 5px;
 }
-#QR-icon:hover {
+#bankIcon {
+  margin-right: 5px;
+}
+#QR-icon {
+  transition: 0.15s ease-in-out;
+}
+.btn-outline-primary:hover #QR-icon {
   color: white;
 }
-a#account-btn {
+#location-icon {
+  color: #118ab2;
+}
+a#account-btn,
+.nav-link {
   transition: border 200ms ease-in-out;
+  display: flex;
+  align-items: center;
 }
 a#account-btn:hover {
   border-bottom: 2px solid #299bc2;
 }
 .btn {
   border: none;
-  color: #118ab2;
+  color: white;
   border-radius: none;
   padding-bottom: 6px;
-  background-color: white;
+  background-color: #23a6d5;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
-  background-color: #23a6d5;
+  background-color: #1d90b9;
 }
 
 #timer {

@@ -28,7 +28,7 @@
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+      <div class="atnav container-fluid">
         <a class="navbar-brand" href="#">ParkingLots</a>
         <button
           class="navbar-toggler"
@@ -49,15 +49,19 @@
           </div>
           <div class="navbar-nav ms-auto">
             <a
-              class="nav-link active"
+              class="nav-link "
               id="account-btn"
               aria-current="page"
               href="/user"
             >
               <i class="material-icons">account_circle</i><%= user.firstName %>
             </a>
-            <form action="/logout" method="POST">
-              <button class="logout-btn">logout</button>
+            <a href="" class="nav-link">
+              <img id="bankIcon" src="https://i.pinimg.com/originals/a0/3c/f5/a03cf5e37b4b1d0b376ad04a6b39e0b3.png" alt="" width="30" height="30">
+              Kbank
+            </a>
+            <form class="nav-link" action="/logout" method="POST">
+              <button class="logout-btn nav-link">Logout</button>
             </form>
           </div>
         </div>
@@ -96,7 +100,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container" id="parking-fee-box">
       <div class="container-fluid">
         <h2 style="border-bottom: 1px solid rgb(126, 118, 118)">Parking Fee</h2>
         <div>
