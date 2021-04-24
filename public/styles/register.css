@@ -107,8 +107,9 @@ a.terms:hover {
 @media (max-width: 500px) {
   .container {
     width: 350px;
-    height: 1000px;
+    height: auto;
     flex-direction: column;
+    margin: 20px 0;
   }
   form {
     flex-direction: column;
@@ -116,5 +117,14 @@ a.terms:hover {
   .poster,
   .input-panel {
     width: 100%;
+  }
+  div#birthday {
+    margin-top: 0;
+  }
+  .poster {
+    margin-bottom: 0;
+  }
+  .title {
+    margin-top: 30px;
   }
 }
