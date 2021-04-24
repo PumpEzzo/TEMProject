@@ -56,7 +56,7 @@ app.post("/login", async (req, res) => {
   if (foundUser) {
     req.session.user_id = foundUser._id;
     req.session.user = foundUser;
-    res.redirect("/user");
+    res.redirect("/");
   } else {
     req.flash("error", "username or password is incorrect");
     res.redirect("/login");
@@ -79,7 +79,7 @@ app.post("/register", async (req, res) => {
     await user.save();
     req.session.user_id = user._id;
     req.session.user = user;  //req.session.foundUser //FoundUser is broken  
-    res.redirect("/user");
+    res.redirect("/");
   } else {
     req.flash("error", "Email is already registered");
     res.redirect("/register");
