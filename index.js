@@ -92,6 +92,14 @@ app.get("/user", isLoggedIn, async (req, res) => {
   res.render("user", { userFound });
 });
 
+app.get("/scanQR", isLoggedIn, (req, res)=> {
+  res.render("scanQR");
+});
+
+// app.get("/scanQR", isLoggedIn, (req, res)=> {
+//   res.render("scanQR");
+// });
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
