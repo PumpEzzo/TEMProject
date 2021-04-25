@@ -49,7 +49,7 @@
           </div>
           <div class="navbar-nav ms-auto">
             <a
-              class="nav-link "
+              class="nav-link"
               id="account-btn"
               aria-current="page"
               href="/user"
@@ -57,7 +57,13 @@
               <i class="material-icons">account_circle</i><%= user.firstName %>
             </a>
             <a href="" class="nav-link">
-              <img id="bankIcon" src="https://i.pinimg.com/originals/a0/3c/f5/a03cf5e37b4b1d0b376ad04a6b39e0b3.png" alt="" width="30" height="30">
+              <img
+                id="bankIcon"
+                src="https://i.pinimg.com/originals/a0/3c/f5/a03cf5e37b4b1d0b376ad04a6b39e0b3.png"
+                alt=""
+                width="30"
+                height="30"
+              />
               Kbank
             </a>
             <form class="nav-link" action="/logout" method="POST">
@@ -99,11 +105,10 @@
             <span class="material-icons" id="QR-icon"> qr_code_scanner </span>Scan QR
           </button>
         </form> -->
-        <a href="/scanQR" type="button" class="btn btn-outline-primary">
-          <span class="material-icons" id="QR-icon"> qr_code_scanner </span>Scan QR
+        <a href="/scanQR" class="btn btn-outline-primary" id="scanQR-btn">
+          <span class="material-icons" id="QR-icon"> qr_code_scanner </span>Scan
+          QR
         </a>
-          
-        </div>
       </div>
     </div>
     <div class="container" id="parking-fee-box">

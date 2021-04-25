@@ -84,7 +84,7 @@ a#account-btn,
 a#account-btn:hover {
   border-bottom: 2px solid #299bc2;
 }
-.btn {
+a.btn.btn-outline-primary {
   border: none;
   color: white;
   border-radius: none;
@@ -98,7 +98,7 @@ a#account-btn:hover {
   justify-content: center;
 }
 
-.btn:hover {
+a.btn.btn-outline-primary:hover {
   background-color: #1d90b9;
 }
 
