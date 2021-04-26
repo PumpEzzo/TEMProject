@@ -30,7 +30,7 @@
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <div class="atnav container-fluid">
-        <a class="navbar-brand" href="#">ParkingLots</a>
+        <a class="navbar-brand" href="#">MPark</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -83,67 +83,36 @@
           alt=""
           class="profile-photo"
         />
-        <button class="editprofile-btn">Change Profile Photo</button>
+        <button class="editprofile-btn">
+          <span class="material-icons" id="photo-icon" style="font-size: 20px">
+            image </span
+          >Change Profile Photo
+        </button>
       </div>
       <div class="info">
         <div class="input">
-          <label for="fname">First Name</label>
-          <input
-            type="text"
-            placeholder=""
-            id="fname"
-            name="firstName"
-            value="<%=user.firstName%>"
-          />
+          <label for="fname">First Name :</label>
+          <h6 id="fname"><%=user.firstName%></h6>
         </div>
         <div class="input">
-          <label for="lname">Last Name</label>
-          <input
-            type="text"
-            placeholder=""
-            id="lname"
-            name="lastName"
-            value="<%= user.lastName %> "
-          />
+          <label for="lname">Last Name :</label>
+          <h6 id="lname"><%=user.lastName%></h6>
         </div>
         <div class="input">
-          <label for="id-no">ID Number</label>
-          <input
-            type="text"
-            placeholder=""
-            id="id-no"
-            name="idNo"
-            value="<%=user.idNo%>"
-          />
+          <label for="id-no">ID Number :</label>
+          <h6 id="id-no"><%=user.idNo%></h6>
         </div>
         <div class="input">
-          <label for="car-no" id="car-no">Vehicle Registration Number</label>
-          <input
-            type="text"
-            placeholder=""
-            id="car-no"
-            name="carNo"
-            value="<%=user.carNo%>"
-          />
+          <label for="car-no" id="car-no">Vehicle Registration Number :</label>
+          <h6 id="car-no"><%=user.carNo%></h6>
         </div>
         <div class="input" id="birthday">
-          <label for="birthday" id="birthday">Date of Birth</label>
-          <input
-            type="date"
-            id="birthday"
-            name="birthday"
-            value="<%=user.birthday %>"
-          />
+          <label for="birthday" id="birthday">Date of Birth :</label>
+          <h6 id="birthday"><%=user.birthday%></h6>
         </div>
         <div class="input">
-          <label for="email" id="email">Email Address</label>
-          <input
-            type="email"
-            placeholder=""
-            id="email"
-            name="email"
-            value="<%=user.email%>"
-          />
+          <label for="email" id="email">Email Address :</label>
+          <h6 id="email"><%=user.email%></h6>
         </div>
       </div>
     </div>

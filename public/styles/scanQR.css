@@ -73,3 +73,12 @@ h4 {
 .material-icons:hover {
   color: white;
 }
+#gallery-btn {
+  position: relative;
+  top: 200px;
+  left: 320px;
+  font-size: 30px;
+  border: 2px solid rgb(194, 188, 188);
+  padding: 4px;
+  border-radius: 5px;
+}

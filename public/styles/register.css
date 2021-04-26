@@ -35,7 +35,15 @@ form {
   width: 50%;
   height: 100%;
 }
-
+.material-icons {
+  position: relative;
+  right: 145px;
+  top: 10px;
+  color: #118ab2;
+}
+.alert {
+  padding: 8px;
+}
 form div {
   margin: 20px 0;
   text-align: center;
@@ -125,6 +133,6 @@ a.terms:hover {
     margin-bottom: 0;
   }
   .title {
-    margin-top: 30px;
+    margin-top: 0;
   }
 }
