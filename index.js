@@ -7,19 +7,18 @@ const app = express();
 const flash = require("connect-flash");
 const Parking = require("./models/parkingSchema");
 
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session({ secret: "Not good", resave:true, saveUninitialized:true }));
+app.use(session({ secret: "Not good", resave: true, saveUninitialized: true }));
 app.use(flash());
-app.use((req, res, next)=>{
-  if(req.session.user){
+app.use((req, res, next) => {
+  if (req.session.user) {
     res.locals.user = req.session.user;
   }
   next();
-})
+});
 
 function isLoggedIn(req, res, next) {
   if (!req.session.user_id) {
@@ -41,8 +40,11 @@ mongoose.connect(
 );
 
 app.get("/", isLoggedIn, async (req, res) => {
-  const foundUser = await User.findById(req.session.user_id).populate("parkedHis");
-  const lastParking = foundUser.parkedHis[-1];
+  const foundUser = await User.findById(req.session.user_id).populate(
+    "parkedHis"
+  );
+  const lastParking = foundUser.parkedHis[foundUser.parkedHis.length - 1];
+  console.log(foundUser);
   res.render("index", { lastParking });
 });
 
@@ -70,7 +72,7 @@ app.post("/logout", (req, res) => {
 });
 
 app.get("/register", isLoggedOut, (req, res) => {
-  res.render("register", { message: flash("error") });
+  res.render("register", { message: req.flash("error") });
 });
 
 app.post("/register", async (req, res) => {
@@ -79,7 +81,7 @@ app.post("/register", async (req, res) => {
   if (!valid) {
     await user.save();
     req.session.user_id = user._id;
-    req.session.user = user;  //req.session.foundUser //FoundUser is broken  
+    req.session.user = user; //req.session.foundUser //FoundUser is broken
     res.redirect("/");
   } else {
     req.flash("error", "Email is already registered");
@@ -92,7 +94,7 @@ app.get("/user", isLoggedIn, async (req, res) => {
   res.render("user", { userFound });
 });
 
-app.get("/scanQR", isLoggedIn, (req, res)=> {
+app.get("/scanQR", isLoggedIn, (req, res) => {
   res.render("scanQR");
 });
 

@@ -29,7 +29,7 @@
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
       <div class="atnav container-fluid">
-        <a class="navbar-brand" href="#">ParkingLots</a>
+        <a class="navbar-brand" href="#">MPark</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -78,12 +78,18 @@
       <div class="container-fluid">
         <div class="time-stamp">
           <div id="check-in">
-            <h5>Check in at:</h5>
-            <h3>10:10 AM</h3>
+            <h5>Check in at :</h5>
+            <h3>
+              <%= new Date(lastParking.createdAt).toTimeString().substring(0,5)
+              %>
+            </h3>
           </div>
           <div id="check-out">
             <h5>Time before being charged :</h5>
-            <h3>12:10 PM</h3>
+            <h3>
+              <%= new Date(lastParking.expireAt).toTimeString().substring(0,5)
+              %>
+            </h3>
           </div>
         </div>
         <div class="time-left">
@@ -96,15 +102,11 @@
         <div>
           <h5>Location :</h5>
           <h3>
-            <i class="material-icons" id="location-icon"> location_on </i>Siam
-            Paragon
+            <i class="material-icons" id="location-icon"> location_on </i>
+            <%= lastParking.location %>
           </h3>
         </div>
-        <!-- <form action="/scanQR" method="POST">
-          <button type="button" class="btn btn-outline-primary">
-            <span class="material-icons" id="QR-icon"> qr_code_scanner </span>Scan QR
-          </button>
-        </form> -->
+
         <a href="/scanQR" class="btn btn-outline-primary" id="scanQR-btn">
           <span class="material-icons" id="QR-icon"> qr_code_scanner </span>Scan
           QR

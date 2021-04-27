@@ -4,6 +4,8 @@ html {
 .navbar-light {
   height: 80px;
   background: linear-gradient(-45deg, #23d5ab, #23a6d5);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .navbar-brand {
   font-family: "Yeseva One";
@@ -21,10 +23,7 @@ div.atnav {
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
   background-color: white;
-  flex-direction: column;
-  display: flex;
 }
 nav {
   box-shadow: 0 -0.5rem 0.5rem 0.25rem;
@@ -39,7 +38,7 @@ nav {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  padding: 0;
+  padding: 10px;
   box-shadow: 0 3px 1px 0.05px #118ab2;
 }
 #parking-fee-box {

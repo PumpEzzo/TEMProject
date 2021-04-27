@@ -16,6 +16,8 @@ body {
 }
 nav {
   box-shadow: 0 -0.5rem 0.5rem 0.25rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 div.atnav {
   background-color: whitesmoke;
@@ -42,6 +44,7 @@ div.atnav {
   flex-direction: column;
   margin-bottom: 30px;
   box-shadow: 0 3px 1px 0.05px #118ab2;
+  padding: 0 20px;
 }
 div.img {
   display: flex;
@@ -54,6 +57,7 @@ h1 {
   border-bottom: 2px solid #ee7752;
   font-family: "Yeseva One";
   margin-top: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 .profile-photo {
@@ -79,24 +83,24 @@ a.nav-link:hover {
   border-bottom: 2px solid #299bc2;
 }
 .editprofile-btn {
-  margin: 10px 0;
+  margin: 10px auto;
   background: none;
   border: none;
+  width: 60%;
   border-radius: 10px;
   border: 1px solid #118ab2;
   color: #118ab2;
   transition: all 200ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .editprofile-btn:hover {
   background-color: #e8f7fc;
   box-shadow: 0 0.5em -0.5em 0.4em;
   transform: translateY(-0.075em);
 }
-input {
-  line-height: 2;
-  border-radius: 2px;
-  border: 1px solid #7a9eaa;
-}
+
 input:hover {
   border: 1px solid #045570;
 }
@@ -121,6 +125,7 @@ label {
   font-size: 30px;
   margin-right: 5px;
 }
+
 a#account-btn,
 .nav-link {
   transition: border 200ms ease-in-out;
