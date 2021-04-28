@@ -44,7 +44,7 @@ app.get("/", isLoggedIn, async (req, res) => {
     "parkedHis"
   );
   const lastParking = foundUser.parkedHis[foundUser.parkedHis.length - 1];
-  console.log(foundUser);
+  //console.log(foundUser);
   res.render("index", { lastParking });
 });
 
