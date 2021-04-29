@@ -79,6 +79,7 @@ app.post("/register", async (req, res) => {
   const user = new User(req.body);
   const valid = await User.findOne({ email: user.email });
   if (!valid) {
+    user.parkedHis = await Parking.findOne({});
     await user.save();
     req.session.user_id = user._id;
     req.session.user = user; //req.session.foundUser //FoundUser is broken
